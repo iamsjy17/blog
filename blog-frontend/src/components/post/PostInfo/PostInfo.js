@@ -15,7 +15,7 @@ const PostInfo = ({ publishedDate, title, tags }) => (
         {tags &&
           tags.map(tag => (
             <Link key={tag} to={`/tag/${tag}`}>
-              #{tags}
+              #{tag}
             </Link>
           ))}
       </div>

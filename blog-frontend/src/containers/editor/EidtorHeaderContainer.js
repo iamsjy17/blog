@@ -24,7 +24,7 @@ class EditorHeaderContainer extends Component {
       title,
       body: markdown,
       tags:
-        tags === '' ? [] : [...new Set(tags.split('').map(tag => tag.trim()))]
+        tags === '' ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
     };
     try {
       await EditorActions.writePost(post);
