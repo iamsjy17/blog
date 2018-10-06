@@ -13,7 +13,7 @@ const Header = () => (
         <Link to="/">reactblog</Link>
       </div>
       <div className={cx('right')}>
-        <Button theme="outline" to="/editor" disabled={false}>
+        <Button theme="outline" to="/editor">
           새 포스트
         </Button>
       </div>
