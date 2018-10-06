@@ -2,11 +2,28 @@ import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
 //action Type
+const INITIALIZE = 'editor/INITIALIZE';
+const CHANGE_INPUT = 'editor/CHANGE_INPUT';
 
 //action Creators
+export const initialize = createAction(INITIALIZE);
+export const changeInput = createAction(CHANGE_INPUT);
 
 //initial State
-const initialState = Map({});
+const initialState = Map({
+  title: '',
+  markdown: '',
+  tags: ''
+});
 
 //reducer
-export default handleActions({}, initialState);
+export default handleActions(
+  {
+    [INITIALIZE]: (state, action) => initialState,
+    [CHANGE_INPUT]: (state, action) => {
+      const { name, value } = action.payload;
+      return state.set(name, value);
+    }
+  },
+  initialState
+);
