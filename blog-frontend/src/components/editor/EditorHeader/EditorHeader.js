@@ -5,7 +5,7 @@ import Button from 'components/common/Button';
 
 const cx = classNames.bind(styles);
 
-const EditorHeader = ({ onGoBack, onSubmit }) => {
+const EditorHeader = ({ onGoBack, onSubmit, isEdit }) => {
   return (
     <div className={cx('editor-header')}>
       <div className={cx('back')}>
@@ -16,7 +16,8 @@ const EditorHeader = ({ onGoBack, onSubmit }) => {
 
       <div className={cx('submit')}>
         <Button onClick={onSubmit} theme="outLine">
-          작성하기
+          {isEdit ? '수정' : '작성'}
+          하기
         </Button>
       </div>
     </div>
