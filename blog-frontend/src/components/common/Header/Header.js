@@ -14,10 +14,10 @@ const Header = ({ postId, onRemove }) => (
       </div>
       <div className={cx('right')}>
         {postId && [
-          <Button theme="outline" to={`/editor?id=${postId}`}>
+          <Button key={0} theme="outline" to={`/editor?id=${postId}`}>
             수정
           </Button>,
-          <Button theme="outline" onClick={onRemove}>
+          <Button key={1} theme="outline" onClick={onRemove}>
             삭제
           </Button>
         ]}

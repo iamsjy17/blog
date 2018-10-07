@@ -6,9 +6,11 @@ import * as api from 'lib/api';
 
 //action Type
 const GET_POST = 'post/GET_POST';
+const REMOVE_POST = 'post/REMOVE_POST';
 
 //action Creators
 export const getPost = createAction(GET_POST, api.getPost);
+export const removePost = createAction(REMOVE_POST, api.removePost);
 
 //initial State
 const initialState = Map({
