@@ -2,6 +2,15 @@ const { ObjectId } = require('mongoose').Types;
 const Joi = require('joi');
 const Post = require('../../models/post');
 
+exports.checkLogin = (ctx, next) => {
+  console.log(`logged?${ctx.session.logged}`);
+  if (!ctx.session.logged) {
+    ctx.status = 401;
+    return null;
+  }
+  return next();
+};
+
 exports.checkObjectId = (ctx, next) => {
   const { id } = ctx.params;
 
