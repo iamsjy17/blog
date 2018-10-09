@@ -14,6 +14,7 @@ module.exports = {
     'comma-dangle': 0,
     'no-console': 0,
     'eol-last': 0,
-    'import/prefer-default-export': 0
+    'import/prefer-default-export': 0,
+    'no-empty': 0
   }
 };

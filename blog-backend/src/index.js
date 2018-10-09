@@ -11,6 +11,7 @@ const { PORT: port = 4000, MONGO_URI: mongoURI, COOKIE_SIGN_KEY: signKey } = pro
 
 const app = new Koa();
 const router = new Router();
+const ssr = require('./ssr');
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -26,6 +27,7 @@ mongoose
   });
 
 router.use('/api', api.routes());
+router.get('/', ssr);
 
 app.use(bodyParser());
 
@@ -35,6 +37,7 @@ const sessionConfig = {
 app.use(session(sessionConfig, app));
 app.keys = [signKey];
 app.use(router.routes()).use(router.allowedMethods());
+app.use(ssr);
 
 app.listen(port, () => {
   console.log('listening to port 4000');
