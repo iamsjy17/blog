@@ -4,9 +4,11 @@ import Pagination from 'components/list/Pagination';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as listActions from 'store/modules/list';
+import shouldCancle from 'lib/shouldCancle';
 
 class ListContainer extends Component {
   getPostList = () => {
+    if(shouldCancle()) return;
     const { tag, page, ListActions } = this.props;
     ListActions.getPostList({
       page,

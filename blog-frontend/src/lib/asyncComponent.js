@@ -16,19 +16,20 @@ export default function asyncComponent(getComponent) {
     }
 
     render() {
-      const { Component } = this.this.state;
+      const { Component } = this.state
       if (Component) {
-        return <Component {...this.props} />;
+        return <Component {...this.props} />
       }
-      return null;
+      return null
     }
   }
 
+  // 서버 사이드 렌더링 / 코드 스플리팅 충돌 해결을 위한 함수
   AsyncComponent.getComponent = () => {
     return getComponent().then(({ default: Component }) => {
       AsyncComponent.Component = Component;
     });
-  };
+  }
 
   return AsyncComponent;
 }

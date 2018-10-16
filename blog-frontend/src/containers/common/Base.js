@@ -3,6 +3,7 @@ import LoginModalContainer from 'containers/modal/LoginModalContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as baseActions from 'store/modules/base';
+import { inform } from 'lib/shouldCancle'; 
 
 class Base extends Component {
   initialize = () => {
@@ -15,6 +16,8 @@ class Base extends Component {
 
   componentDidMount() {
     this.initialize();
+    inform();
+
   }
   render() {
     return (
